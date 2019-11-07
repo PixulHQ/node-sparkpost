@@ -1,3 +1,2 @@
-node_modules
-xunit.xml
-test/reports/*
+node_modules/
+.idea
