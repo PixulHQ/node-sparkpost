@@ -1,0 +1,30 @@
+module.exports = {
+    assert    : '@hapi/code',
+    lint      : true,
+    coverage  : true,
+    threshold : 99,
+    globals   : [
+        '__assign',
+        '__asyncDelegator',
+        '__asyncGenerator',
+        '__asyncValues',
+        '__await',
+        '__awaiter',
+        '__core-js_shared__',
+        '__decorate',
+        '__exportStar',
+        '__extends',
+        '__generator',
+        '__importDefault',
+        '__importStar',
+        '__makeTemplateObject',
+        '__metadata',
+        '__param',
+        '__read',
+        '__rest',
+        '__SENTRY__',
+        '__spread',
+        '__spreadArrays',
+        '__values'
+    ].join(',')
+};

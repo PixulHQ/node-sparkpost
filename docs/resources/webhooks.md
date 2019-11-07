@@ -2,8 +2,6 @@
 
 This library provides easy access to the [Webhooks](https://developers.sparkpost.com/api/webhooks) Resource.
 
-*Note: All methods return promises and accept an optional last argument callback. [Read about how we handle callbacks and promises](/docs/async.md).*
-
 ## Methods
 * **list([options])**<br />
   Lists all webhooks.

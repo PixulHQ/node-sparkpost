@@ -1,31 +1,21 @@
 'use strict';
 
-var key = 'YOURAPIKEY'
-  , SparkPost = require('sparkpost')
-  , client = new SparkPost(key)
-  , searchParams = {
-    events: 'click',
-    campaign_ids: 'monday_mailshot'
-  };
+const key       = 'YOURAPIKEY';
+const SparkPost = require('sparkpost');
+
+const client       = new SparkPost(key);
+const searchParams = {
+    events       : 'click',
+    campaign_ids : 'monday_mailshot'
+};
 
 // Promise
-client.messageEvents.search(searchParams)
-  .then(data => {
-    console.log('Congrats you can use our client library!');
-    console.log(data);
-  })
-  .catch(err => {
-    console.log('Whoops! Something went wrong');
-    console.log(err);
-  });
+client.messageEvents.search(searchParams).then((data) => {
 
-// Callback
-client.messageEvents.search(searchParams, function(err, data) {
-  if (err) {
-    console.log('Whoops! Something went wrong');
-    console.log(err);
-  } else {
     console.log('Congrats you can use our client library!');
     console.log(data);
-  }
+}).catch((err) => {
+
+    console.log('Whoops! Something went wrong');
+    console.log(err);
 });

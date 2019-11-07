@@ -2,8 +2,6 @@
 
 This library provides easy access to the [Message Events](https://developers.sparkpost.com/api/message-events) resource.
 
-*Note: All methods return promises and accept an optional last argument callback. [Read about how we handle callbacks and promises](/docs/async.md).*
-
 ## Methods
 * **search([params, callback])**<br />
   Search for message events using the given parameters (NOTE: all params are optional):
