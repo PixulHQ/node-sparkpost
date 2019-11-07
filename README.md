@@ -2,7 +2,7 @@
 
 This is a fork of [node-sparkpost](https://github.com/SparkPost/node-sparkpost). Callbacks have been removed, lodash has been removed, request has been replaced by got, and some code has been refactored to classes.
 
-[![Travis CI](https://travis-ci.org/PixulHQ/sparkpost.svg?branch=master)](https://travis-ci.org/PixulHQ/sparkpost) [![Coverage Status](https://coveralls.io/repos/github/PixulHQ/sparkpost/badge.svg?branch=master)](https://coveralls.io/github/PixulHQ/sparkpost?branch=master) [![NPM version](https://badge.fury.io/js/sparkpost.png)](http://badge.fury.io/js/sparkpost)
+[![Travis CI](https://travis-ci.org/PixulHQ/sparkpost.svg?branch=master)](https://travis-ci.org/PixulHQ/sparkpost) [![Coverage Status](https://coveralls.io/repos/github/PixulHQ/sparkpost/badge.svg?branch=master)](https://coveralls.io/github/PixulHQ/sparkpost?branch=master) [![npm version](https://badge.fury.io/js/%40pixul%2Fsparkpost.svg)](https://badge.fury.io/js/%40pixul%2Fsparkpost)
 
 Lead Maintainer: [Daniel Cole](https://github.com/optii)
 
