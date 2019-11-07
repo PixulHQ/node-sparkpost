@@ -47,8 +47,8 @@ describe('Message Events Library', () => {
 
                     Object.keys(options).forEach((key) => {
 
-                        expect(client.get.firstCall.args[0].qs).to.include(key);
-                        expect(client.get.firstCall.args[0].qs[key]).to.equal(options[key]);
+                        expect(client.get.firstCall.args[0].searchParams).to.include(key);
+                        expect(client.get.firstCall.args[0].searchParams[key]).to.equal(options[key]);
                     });
                 });
         });
@@ -75,7 +75,7 @@ describe('Message Events Library', () => {
                     Object.keys(arroptions).forEach((key) => {
 
                         const opt         = arroptions[key];
-                        const firstCallQS = client.get.firstCall.args[0].qs;
+                        const firstCallQS = client.get.firstCall.args[0].searchParams;
 
                         if (Array.isArray(opt)) {
 

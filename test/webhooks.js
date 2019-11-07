@@ -42,7 +42,7 @@ describe('Webhooks Library', () => {
 
             return webhooks.list(options).then(() => {
 
-                expect(client.get.firstCall.args[0].qs).to.equal({ timezone : 'America/New_York' });
+                expect(client.get.firstCall.args[0].searchParams).to.equal({ timezone : 'America/New_York' });
             });
         });
     });
@@ -70,7 +70,7 @@ describe('Webhooks Library', () => {
 
             return webhooks.get('test', options).then(() => {
 
-                expect(client.get.firstCall.args[0].qs).to.equal({ timezone : 'America/New_York' });
+                expect(client.get.firstCall.args[0].searchParams).to.equal({ timezone : 'America/New_York' });
             });
         });
     });
@@ -88,7 +88,7 @@ describe('Webhooks Library', () => {
             return webhooks.create(webhook).then(() => {
 
                 expect(client.post.firstCall.args[0].uri).to.equal('webhooks');
-                expect(client.post.firstCall.args[0].json).to.equal(webhook);
+                expect(client.post.firstCall.args[0].body).to.equal(webhook);
             });
         });
 
@@ -116,7 +116,7 @@ describe('Webhooks Library', () => {
             return webhooks.update('test', webhook).then(() => {
 
                 expect(client.put.firstCall.args[0].uri).to.equal('webhooks/test');
-                expect(client.put.firstCall.args[0].json).to.equal(webhook);
+                expect(client.put.firstCall.args[0].body).to.equal(webhook);
             });
         });
 
@@ -170,7 +170,7 @@ describe('Webhooks Library', () => {
             return webhooks.validate('test', options).then(() => {
 
                 expect(client.post.firstCall.args[0].uri).to.equal('webhooks/test/validate');
-                expect(client.post.firstCall.args[0].json).to.equal(options);
+                expect(client.post.firstCall.args[0].body).to.equal(options);
             });
         });
 
@@ -223,7 +223,7 @@ describe('Webhooks Library', () => {
 
             return webhooks.getBatchStatus('test', options).then(() => {
 
-                expect(client.get.firstCall.args[0].qs).to.equal({ limit : 1000 });
+                expect(client.get.firstCall.args[0].searchParams).to.equal({ limit : 1000 });
             });
         });
     });
@@ -257,7 +257,7 @@ describe('Webhooks Library', () => {
 
             return webhooks.getSamples(options).then(() => {
 
-                expect(client.get.firstCall.args[0].qs).to.equal({ events : 'bounces' });
+                expect(client.get.firstCall.args[0].searchParams).to.equal({ events : 'bounces' });
             });
         });
     });

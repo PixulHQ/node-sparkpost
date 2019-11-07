@@ -61,7 +61,7 @@ describe('Templates Library', () => {
 
             return templates.get(id, options).then(() => {
 
-                expect(client.get.firstCall.args[0].qs).to.equal({ draft : true });
+                expect(client.get.firstCall.args[0].searchParams).to.equal({ draft : true });
             });
         });
     });
@@ -77,7 +77,7 @@ describe('Templates Library', () => {
             return templates.create(template).then(() => {
 
                 expect(client.post.firstCall.args[0].uri).to.equal('templates');
-                expect(client.post.firstCall.args[0].json).to.equal(template);
+                expect(client.post.firstCall.args[0].body).to.equal(template);
             });
         });
 
@@ -104,7 +104,7 @@ describe('Templates Library', () => {
             return templates.update(id, template).then(() => {
 
                 expect(client.put.firstCall.args[0].uri).to.equal('templates/test');
-                expect(client.put.firstCall.args[0].json).to.equal(template);
+                expect(client.put.firstCall.args[0].body).to.equal(template);
             });
         });
 
@@ -135,7 +135,7 @@ describe('Templates Library', () => {
 
             return templates.update(id, template, options).then(() => {
 
-                expect(client.put.firstCall.args[0].qs).to.equal(options);
+                expect(client.put.firstCall.args[0].searchParams).to.equal(options);
             });
         });
     });
@@ -177,7 +177,7 @@ describe('Templates Library', () => {
             return templates.preview(id, options).then(() => {
 
                 expect(client.post.firstCall.args[0].uri).to.equal('templates/test/preview');
-                expect(client.post.firstCall.args[0].json).to.equal(options);
+                expect(client.post.firstCall.args[0].body).to.equal(options);
             });
         });
 
@@ -195,7 +195,7 @@ describe('Templates Library', () => {
 
             return templates.preview(id, options).then(() => {
 
-                expect(client.post.firstCall.args[0].qs).to.equal({ draft : false });
+                expect(client.post.firstCall.args[0].searchParams).to.equal({ draft : false });
             });
         });
     });

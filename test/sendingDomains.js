@@ -68,7 +68,7 @@ describe('Sending Domains Library', () => {
             return sendingDomains.create(sendingDomain).then(() => {
 
                 expect(client.post.firstCall.args[0].uri).to.equal('sending-domains');
-                expect(client.post.firstCall.args[0].json).to.equal(sendingDomain);
+                expect(client.post.firstCall.args[0].body).to.equal(sendingDomain);
             });
         });
 
@@ -94,7 +94,7 @@ describe('Sending Domains Library', () => {
             return sendingDomains.update('test', sendingDomain).then(() => {
 
                 expect(client.put.firstCall.args[0].uri).to.equal('sending-domains/test');
-                expect(client.put.firstCall.args[0].json).to.equal(sendingDomain);
+                expect(client.put.firstCall.args[0].body).to.equal(sendingDomain);
             });
         });
 
@@ -142,7 +142,7 @@ describe('Sending Domains Library', () => {
             return sendingDomains.verify('test', options).then(() => {
 
                 expect(client.post.firstCall.args[0].uri).to.equal('sending-domains/test/verify');
-                expect(client.post.firstCall.args[0].json).to.equal(options);
+                expect(client.post.firstCall.args[0].body).to.equal(options);
             });
         });
 

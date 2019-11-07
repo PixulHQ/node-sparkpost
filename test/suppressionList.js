@@ -65,7 +65,7 @@ describe('Suppression List Library', () => {
             return suppressionList.upsert(listEntry).then(() => {
 
                 expect(client.put.firstCall.args[0].uri).to.equal('suppression-list');
-                expect(client.put.firstCall.args[0].json.recipients).to.equal([listEntry]);
+                expect(client.put.firstCall.args[0].body.recipients).to.equal([listEntry]);
             });
         });
 
@@ -79,7 +79,7 @@ describe('Suppression List Library', () => {
             return suppressionList.upsert(listEntries).then(() => {
 
                 expect(client.put.firstCall.args[0].uri).to.equal('suppression-list');
-                expect(client.put.firstCall.args[0].json.recipients).to.equal(listEntries);
+                expect(client.put.firstCall.args[0].body.recipients).to.equal(listEntries);
             });
         });
 

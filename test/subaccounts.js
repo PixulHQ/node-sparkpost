@@ -68,7 +68,7 @@ describe('Subaccounts Library', () => {
             return subaccounts.create(subaccount).then(() => {
 
                 expect(client.post.firstCall.args[0].uri).to.equal('subaccounts');
-                expect(client.post.firstCall.args[0].json).to.equal(subaccount);
+                expect(client.post.firstCall.args[0].body).to.equal(subaccount);
             });
         });
 
@@ -96,7 +96,7 @@ describe('Subaccounts Library', () => {
             return subaccounts.update('test', subaccount).then(() => {
 
                 expect(client.put.firstCall.args[0].uri).to.equal('subaccounts/test');
-                expect(client.put.firstCall.args[0].json).to.equal(subaccount);
+                expect(client.put.firstCall.args[0].body).to.equal(subaccount);
             });
         });
 

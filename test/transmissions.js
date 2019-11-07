@@ -115,7 +115,7 @@ describe('Transmissions Library', () => {
 
             return transmissions.list(options).then(() => {
 
-                expect(client.get.firstCall.args[0].qs).to.equal({ campaign_id : 'test-campaign' });
+                expect(client.get.firstCall.args[0].searchParams).to.equal({ campaign_id : 'test-campaign' });
             });
         });
 
@@ -127,7 +127,7 @@ describe('Transmissions Library', () => {
 
             return transmissions.list(options).then(() => {
 
-                expect(client.get.firstCall.args[0].qs).to.equal({ template_id : 'test-template' });
+                expect(client.get.firstCall.args[0].searchParams).to.equal({ template_id : 'test-template' });
             });
         });
     });
@@ -159,7 +159,7 @@ describe('Transmissions Library', () => {
             return transmissions.send(transmission).then(() => {
 
                 expect(client.post.firstCall.args[0].uri).to.equal('transmissions');
-                expect(client.post.firstCall.args[0].json).to.equal(transmission);
+                expect(client.post.firstCall.args[0].body).to.equal(transmission);
             });
         });
 
@@ -180,7 +180,7 @@ describe('Transmissions Library', () => {
 
             await transmissions.send(transmission);
 
-            expect(client.post.firstCall.args[0].json.content.headers.CC).to.equal(transmission.cc[0].address);
+            expect(client.post.firstCall.args[0].body.content.headers.CC).to.equal(transmission.cc[0].address);
         });
 
         it('should not create content heads if already exists when adding cc\'s', async () => {
@@ -205,8 +205,8 @@ describe('Transmissions Library', () => {
 
             await transmissions.send(transmission);
 
-            expect(client.post.firstCall.args[0].json.content.headers.CC).to.equal(transmission.cc[0].address);
-            expect(client.post.firstCall.args[0].json.content.headers.something).to.equal(transmission.content.headers.something);
+            expect(client.post.firstCall.args[0].body.content.headers.CC).to.equal(transmission.cc[0].address);
+            expect(client.post.firstCall.args[0].body.content.headers.something).to.equal(transmission.content.headers.something);
         });
 
         it('should throw an error if transmission object is missing', () => {
@@ -231,7 +231,7 @@ describe('Transmissions Library', () => {
 
             return transmissions.send(transmission, options).then(() => {
 
-                expect(client.post.firstCall.args[0].qs).to.equal({ num_rcpt_errors : 3 });
+                expect(client.post.firstCall.args[0].searchParams).to.equal({ num_rcpt_errors : 3 });
             });
         });
 
@@ -245,7 +245,7 @@ describe('Transmissions Library', () => {
 
             return transmissions.send(options).then(() => {
 
-                expect(client.post.firstCall.args[0].json.content).to.include('email_rfc822');
+                expect(client.post.firstCall.args[0].body.content).to.include('email_rfc822');
             });
         });
 
@@ -262,7 +262,7 @@ describe('Transmissions Library', () => {
 
             return transmissions.send(transmission).then(() => {
 
-                expect(client.post.firstCall.args[0].json).to.equal(transmission);
+                expect(client.post.firstCall.args[0].body).to.equal(transmission);
             });
         });
 
@@ -289,7 +289,7 @@ describe('Transmissions Library', () => {
                 delete transmission.cc;
                 delete transmission.bcc;
 
-                expect(client.post.firstCall.args[0].json).to.equal(transmission);
+                expect(client.post.firstCall.args[0].body).to.equal(transmission);
             });
         });
 
@@ -297,8 +297,8 @@ describe('Transmissions Library', () => {
 
             return transmissions.send(ccTransmission).then(() => {
 
-                expect(client.post.firstCall.args[0].json.recipients).to.equal(ccExpectedRecipients);
-                expect(client.post.firstCall.args[0].json.content.headers.CC).to.equal(expectedCCHeader);
+                expect(client.post.firstCall.args[0].body.recipients).to.equal(ccExpectedRecipients);
+                expect(client.post.firstCall.args[0].body.content.headers.CC).to.equal(expectedCCHeader);
             });
         });
 
@@ -311,8 +311,8 @@ describe('Transmissions Library', () => {
 
             return transmissions.send(bccTransmission).then(() => {
 
-                expect(client.post.firstCall.args[0].json.recipients).to.equal(bccExpectedRecipients);
-                expect(client.post.firstCall.args[0].json.content.headers).to.be.undefined();
+                expect(client.post.firstCall.args[0].body.recipients).to.equal(bccExpectedRecipients);
+                expect(client.post.firstCall.args[0].body.content.headers).to.be.undefined();
             });
         });
 
@@ -352,7 +352,7 @@ describe('Transmissions Library', () => {
 
             return transmissions.send(transmission).then(() => {
 
-                expect(client.post.firstCall.args[0].json).to.equal(transmission);
+                expect(client.post.firstCall.args[0].body).to.equal(transmission);
             });
         });
     });

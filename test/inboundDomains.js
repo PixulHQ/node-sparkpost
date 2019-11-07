@@ -65,7 +65,7 @@ describe('Inbound Domains Library', () => {
                 .then(() => {
 
                     expect(client.post.firstCall.args[0].uri).to.equal('inbound-domains');
-                    expect(client.post.firstCall.args[0].json).to.equal(createOpts);
+                    expect(client.post.firstCall.args[0].body).to.equal(createOpts);
                 });
         });
 

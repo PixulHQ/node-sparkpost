@@ -32,7 +32,7 @@ describe('Tracking Domains Library', () => {
 
             return trackingDomains.list({}).then(() => {
 
-                expect(client.get.firstCall.args[0]).to.equal({ uri : 'tracking-domains', qs : {} });
+                expect(client.get.firstCall.args[0]).to.equal({ uri : 'tracking-domains', searchParams : {} });
             });
         });
 
@@ -40,7 +40,7 @@ describe('Tracking Domains Library', () => {
 
             return trackingDomains.list({ default : true }).then(() => {
 
-                expect(client.get.firstCall.args[0]).to.equal({ uri : 'tracking-domains', qs : { default : true } });
+                expect(client.get.firstCall.args[0]).to.equal({ uri : 'tracking-domains', searchParams : { default : true } });
             });
         });
 
@@ -48,7 +48,7 @@ describe('Tracking Domains Library', () => {
 
             return trackingDomains.list({ subaccounts : [1, 3] }).then(() => {
 
-                expect(client.get.firstCall.args[0]).to.equal({ uri : 'tracking-domains', qs : { subaccounts : [1, 3] } });
+                expect(client.get.firstCall.args[0]).to.equal({ uri : 'tracking-domains', searchParams : { subaccounts : [1, 3] } });
             });
         });
     });
@@ -85,7 +85,7 @@ describe('Tracking Domains Library', () => {
             return trackingDomains.create(trackingDomain).then(() => {
 
                 expect(client.post.firstCall.args[0].uri).to.equal('tracking-domains');
-                expect(client.post.firstCall.args[0].json).to.equal(trackingDomain);
+                expect(client.post.firstCall.args[0].body).to.equal(trackingDomain);
             });
         });
 
@@ -111,7 +111,7 @@ describe('Tracking Domains Library', () => {
             return trackingDomains.update('test', trackingDomain).then(() => {
 
                 expect(client.put.firstCall.args[0].uri).to.equal('tracking-domains/test');
-                expect(client.put.firstCall.args[0].json).to.equal(trackingDomain);
+                expect(client.put.firstCall.args[0].body).to.equal(trackingDomain);
             });
         });
 

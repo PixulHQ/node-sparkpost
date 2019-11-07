@@ -1,6 +1,6 @@
 {
   "name": "@pixul/sparkpost",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "A Node.js wrapper for interfacing with SparkPost APIs",
   "main": "./lib/sparkpost.js",
   "scripts": {

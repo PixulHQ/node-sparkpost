@@ -68,7 +68,7 @@ describe('Relay Webhooks Library', () => {
             return relayWebhooks.create(webhook).then(() => {
 
                 expect(client.post.firstCall.args[0].uri).to.equal('relay-webhooks');
-                expect(client.post.firstCall.args[0].json).to.equal(webhook);
+                expect(client.post.firstCall.args[0].body).to.equal(webhook);
             });
         });
 
@@ -94,7 +94,7 @@ describe('Relay Webhooks Library', () => {
             return relayWebhooks.update('test', webhook).then(() => {
 
                 expect(client.put.firstCall.args[0].uri).to.equal('relay-webhooks/test');
-                expect(client.put.firstCall.args[0].json).to.equal(webhook);
+                expect(client.put.firstCall.args[0].body).to.equal(webhook);
             });
         });
 

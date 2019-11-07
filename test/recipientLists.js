@@ -58,7 +58,7 @@ describe('Recipient Lists Library', () => {
 
             return recipientLists.get('test-id', options).then(() => {
 
-                expect(client.get.firstCall.args[0].qs).to.equal({ show_recipients : true });
+                expect(client.get.firstCall.args[0].searchParams).to.equal({ show_recipients : true });
             });
         });
 
@@ -83,7 +83,7 @@ describe('Recipient Lists Library', () => {
             return recipientLists.create(testList).then(() => {
 
                 expect(client.post.firstCall.args[0].uri).to.equal('recipient-lists');
-                expect(client.post.firstCall.args[0].json).to.equal(testList);
+                expect(client.post.firstCall.args[0].body).to.equal(testList);
             });
         });
 
@@ -113,7 +113,7 @@ describe('Recipient Lists Library', () => {
 
             return recipientLists.create(testList).then(() => {
 
-                expect(client.post.firstCall.args[0].qs).to.equal({ num_rcpt_errors : 3 });
+                expect(client.post.firstCall.args[0].searchParams).to.equal({ num_rcpt_errors : 3 });
             });
         });
 
@@ -138,7 +138,7 @@ describe('Recipient Lists Library', () => {
             return recipientLists.update(testId, testList).then(() => {
 
                 expect(client.put.firstCall.args[0].uri).to.equal('recipient-lists/' + testId);
-                expect(client.put.firstCall.args[0].json).to.equal(testList);
+                expect(client.put.firstCall.args[0].body).to.equal(testList);
             });
         });
 
@@ -173,7 +173,7 @@ describe('Recipient Lists Library', () => {
 
             return recipientLists.update('test-id', testList).then(() => {
 
-                expect(client.put.firstCall.args[0].qs).to.equal({ num_rcpt_errors : 3 });
+                expect(client.put.firstCall.args[0].searchParams).to.equal({ num_rcpt_errors : 3 });
             });
         });
 
