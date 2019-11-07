@@ -1,30 +1,20 @@
 'use strict';
 
-var key = 'YOURAPIKEY'
-  , SparkPost = require('sparkpost')
-  , client = new SparkPost(key)
-  , templateID = 'TEST_ID'
-  , options = {
-    substitution_data: {}
-  };
+const key       = 'YOURAPIKEY';
+const SparkPost = require('sparkpost');
 
-client.templates.preview(templateID, options)
-  .then(data => {
+const client     = new SparkPost(key);
+const templateID = 'TEST_ID';
+const options    = {
+    substitution_data : {}
+};
+
+client.templates.preview(templateID, options).then((data) => {
+
     console.log('Congrats you can use our client library!');
     console.log(data);
-  })
-  .catch(err => {
-    console.log('Whoops! Something went wrong');
-    console.log(err);
-  });
+}).catch((err) => {
 
-// Using a callback
-client.templates.preview(templateID, options, function(err, data) {
-  if (err) {
     console.log('Whoops! Something went wrong');
     console.log(err);
-  } else {
-    console.log('Congrats you can use our client library!');
-    console.log(data);
-  }
 });

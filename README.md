@@ -1,12 +1,10 @@
-<a href="https://www.sparkpost.com"><img src="https://www.sparkpost.com/sites/default/files/attachments/SparkPost_Logo_2-Color_Gray-Orange_RGB.svg" width="200px"/></a>
+# Sparkpost Node.js Client Library
 
-[Sign up][sparkpost sign up] for a SparkPost account and visit our [Developer Hub](https://developers.sparkpost.com) for even more content.
-
-# Node.js Client Library
+This is a fork of [node-sparkpost](https://github.com/SparkPost/node-sparkpost). Callbacks have been removed, lodash has been removed, request has been replaced by got, and some code has been refactored to classes.
 
 [![Travis CI](https://travis-ci.org/SparkPost/node-sparkpost.svg?branch=master)](https://travis-ci.org/SparkPost/node-sparkpost) [![Coverage Status](https://coveralls.io/repos/SparkPost/node-sparkpost/badge.svg?branch=master&service=github)](https://coveralls.io/github/SparkPost/node-sparkpost?branch=master) [![NPM version](https://badge.fury.io/js/sparkpost.png)](http://badge.fury.io/js/sparkpost)
 
-The official Node.js binding for your favorite [SparkPost APIs](https://developers.sparkpost.com/api)!
+Lead Maintainer: [Daniel Cole](https://github.com/optii)
 
 ## Prerequisites
 
@@ -18,7 +16,7 @@ Before using this library, you must have:
 ## Installation
 
 ```
-npm install sparkpost
+npm install @pixulhq/sparkpost
 ```
 
 *Note: Node.js versions 0.10 and 0.12 are no longer supported.*
@@ -56,7 +54,7 @@ npm install sparkpost
 
 ## Methods
 
-*Note: All methods return promises and accept an optional last argument callback. [Read about how we handle callbacks and promises](/docs/async.md).*
+*Note: All methods return promises.*
 
 * **request(options[, callback])**
     * `options` - [see request modules options](https://github.com/mikeal/request#requestoptions-callback)
@@ -102,11 +100,11 @@ const options = {
   uri: 'metrics/domains'
 };
 
-client.get(options)
-  .then(data => {
+client.get(options).then(data => {
+
     console.log(data);
-  })
-  .catch(err => {
+  }).catch(err => {
+
     console.log(err);
   });
 ```
@@ -139,10 +137,12 @@ client.transmissions.send({
     ]
   })
   .then(data => {
+
     console.log('Woohoo! You just sent your first mailing!');
     console.log(data);
   })
   .catch(err => {
+
     console.log('Whoops! Something went wrong');
     console.log(err);
   });
@@ -170,16 +170,3 @@ Run `npm install` inside the repository to install all the dev dependencies.
 
 ### Testing
 Once all the dependencies are installed, you can execute the unit tests using `npm test`
-
-### Contributing
-[Guidelines for adding issues](docs/ADDING_ISSUES.md)
-
-[Our coding standards](docs/CODE_STYLE_GUIDE.md)
-
-[Submitting pull requests](CONTRIBUTING.md)
-
-### ChangeLog
-
-[See ChangeLog here](CHANGELOG.md)
-
-[sparkpost sign up]: https://app.sparkpost.com/join?plan=free-0817?src=Social%20Media&sfdcid=70160000000pqBb&pc=GitHubSignUp&utm_source=github&utm_medium=social-media&utm_campaign=github&utm_content=sign-up

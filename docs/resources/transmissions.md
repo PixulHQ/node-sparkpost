@@ -2,8 +2,6 @@
 
 This library provides easy access to the [Transmissions](https://developers.sparkpost.com/api/transmissions) Resource.
 
-*Note: All methods return promises and accept an optional last argument callback. [Read about how we handle callbacks and promises](/docs/async.md).*
-
 ## Methods
 * **list(options[, callback])**<br />
   List an overview of all transmissions in the account

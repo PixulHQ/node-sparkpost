@@ -2,8 +2,6 @@
 
 This library provides easy access to the [Tracking Domains](https://developers.sparkpost.com/api/tracking-domains) Resource.
 
-*Note: All methods return promises and accept an optional last argument callback. [Read about how we handle callbacks and promises](/docs/async.md).*
-
 ## Methods
 * **list(options)**<br />
   List an overview of all tracking domains in the account.

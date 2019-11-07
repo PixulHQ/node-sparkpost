@@ -2,8 +2,6 @@
 
 This library provides easy access to the [Recipient Lists](https://developers.sparkpost.com/api/recipient-lists) Resource.
 
-*Note: All methods return promises and accept an optional last argument callback. [Read about how we handle callbacks and promises](/docs/async.md).*
-
 ## Methods
 * **list()**<br />
   List a summary of all recipient lists.

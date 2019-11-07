@@ -1,30 +1,20 @@
 'use strict';
 
-var key = 'YOURAPIKEY'
-  , SparkPost = require('sparkpost')
-  , client = new SparkPost(key)
-  , createOpts = {
-    domain: 'example1.com'
-  };
+const key       = 'YOURAPIKEY';
+const SparkPost = require('sparkpost');
+
+const client     = new SparkPost(key);
+const createOpts = {
+    domain : 'example1.com'
+};
 
 // Promise
-client.trackingDomains.create(createOpts)
-  .then(data => {
-    console.log('Congrats you can use our client library!');
-    console.log(data);
-  })
-  .catch(err => {
-    console.log('Whoops! Something went wrong');
-    console.log(err);
-  });
+client.trackingDomains.create(createOpts).then((data) => {
 
-// Callback
-client.trackingDomains.create(createOpts, function(err, data) {
-  if (err) {
-    console.log('Whoops! Something went wrong');
-    console.log(err);
-  } else {
     console.log('Congrats you can use our client library!');
     console.log(data);
-  }
+}).catch((err) => {
+
+    console.log('Whoops! Something went wrong');
+    console.log(err);
 });

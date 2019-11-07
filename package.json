@@ -1,13 +1,12 @@
 {
-  "name": "sparkpost",
-  "version": "2.1.3",
-  "description": "A Node.js wrapper for interfacing with your favorite SparkPost APIs",
+  "name": "@pixulhq/sparkpost",
+  "version": "3.0.0",
+  "description": "A Node.js wrapper for interfacing with SparkPost APIs",
   "main": "./lib/sparkpost.js",
   "scripts": {
-    "coveralls": "cat ./test/reports/lcov.info | coveralls",
-    "pretest": "eslint lib/**",
-    "test": "istanbul cover --report lcov --dir test/reports/ _mocha --recursive ./test/spec --grep ./test/**/*.spec.js -- --colors --reporter spec",
-    "postversion": "git push upstream && git push --tags upstream"
+    "coveralls": "lab -r lcov | coveralls",
+    "test-cov-html": "lab -r html -o coverage.html",
+    "test": "lab"
   },
   "keywords": [
     "email",
@@ -15,32 +14,33 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/SparkPost/node-sparkpost"
+    "url": "https://github.com/PixulHQ/node-sparkpost"
   },
-  "author": "Message Systems, Inc.",
+  "author": "Daniel COLE <daniel@pixul.fr>",
+  "contributors": [
+    "Message Systems, Inc."
+  ],
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/SparkPost/node-sparkpost/issues"
+    "url": "https://github.com/PixulHQ/node-sparkpost/issues"
   },
-  "homepage": "https://github.com/SparkPost/node-sparkpost",
+  "homepage": "https://github.com/PixulHQ/node-sparkpost",
   "engines": {
-    "node": ">=4"
+    "node": ">=10"
   },
   "devDependencies": {
-    "chai": "^3.5.0",
-    "chai-as-promised": "^6.0.0",
-    "coveralls": "^3.0.2",
-    "eslint": "^3.12.2",
-    "eslint-config-sparkpost": "1.3.1",
-    "istanbul": "^0.4.5",
-    "mocha": "^5.2.0",
-    "nock": "^9.0.0",
-    "sinon": "^1.17.5",
-    "sinon-as-promised": "^4.0.2",
-    "sinon-chai": "^2.8.0"
+    "@hapi/lab": "21.0.0",
+    "@hapi/code": "7.0.0",
+    "@hapi/eslint-config-hapi": "12.3.0",
+    "@hapi/eslint-plugin-hapi": "4.3.4",
+    "eslint": "6.6.0",
+    "sinon": "7.5.0",
+    "eslint-config-pixul": "2.0.0",
+    "eslint-plugin-security": "1.4.0",
+    "nock": "11.7.0"
   },
   "dependencies": {
-    "lodash": "^4.17.2",
-    "request": "^2.79.0"
+    "@hapi/hoek": "8.5.0",
+    "got": "9.6.0"
   }
 }

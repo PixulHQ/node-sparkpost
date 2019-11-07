@@ -2,8 +2,6 @@
 
 This library provides easy access to the [Sending Domains](https://developers.sparkpost.com/api/sending-domains) Resource.
 
-*Note: All methods return promises and accept an optional last argument callback. [Read about how we handle callbacks and promises](/docs/async.md).*
-
 ## Methods
 * **list()**<br />
   List an overview of all sending domains in the account.
