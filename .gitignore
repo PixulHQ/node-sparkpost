@@ -1,6 +1,2 @@
-node_modules
-xunit.xml
-test/reports/*
-
-# vscode
-.vscode
+node_modules/
+.idea
